@@ -25,29 +25,83 @@
 #include "includes/Simple_constructive_dilemma.hpp"
 #include "includes/Simple_destructive_dilemma.hpp"
 
-Formula* rule_dis(Or* form){
-    auto new_form = new Implies(nullptr, nullptr);
-    auto not_left = new Not(form->get_left());
-    new_form->set_left(not_left);
-    new_form->set_right(form->get_right());
-    return new_form;
+Formula* rule_dis(Formula* form){
+    Formula* res = form;
+    if (auto imp = dynamic_cast<Implies*>(form)){
+        if (dynamic_cast<Or*>(imp->get_left()->clone())){
+            auto or_i = dynamic_cast<Or*>(imp->get_left()->clone());
+            auto new_form = new Implies(nullptr, nullptr);
+            auto not_left = new Not(or_i->get_left()->clone());
+            new_form->set_left(not_left->clone());
+            new_form->set_right(or_i->get_right()->clone());
+            imp->set_left(new_form);
+        }
+        if (dynamic_cast<Or*>(imp->get_right()->clone())){
+            auto or_i = dynamic_cast<Or*>(imp->get_right()->clone());
+            auto new_form = new Implies(nullptr, nullptr);
+            auto not_left = new Not(or_i->get_left()->clone());
+            new_form->set_left(not_left->clone());
+            new_form->set_right(or_i->get_right()->clone());
+            imp->set_right(new_form->clone());
+        }
+        if (dynamic_cast<Implies*>(imp->get_left())) imp->set_left(rule_dis(imp->get_left()));
+        if (dynamic_cast<Implies*>(imp->get_right())) imp->set_right(rule_dis(imp->get_right()));
+        res = nullptr;
+        res = form->clone();
+    }
+    return res;
 }
 
-Not* rule_con(Formula* form_i) {
-    auto and_i = dynamic_cast<And*>(form_i);
-    auto form = dynamic_cast<And*>(form_i->clone());
-
-    auto imp = new Implies(nullptr, nullptr);
-    auto not_right = new Not(form->get_right()->clone());
-
-    imp->set_left(form->get_left()->clone());
-
-    imp->set_right(not_right);
-
-    auto new_form = new Not(imp);
-
-    return new_form;
+Formula* rule_con(Formula* form){
+    Formula* res = form;
+    if (auto imp = dynamic_cast<Implies*>(form)){
+        if (dynamic_cast<And*>(imp->get_left())){
+            auto and_i = dynamic_cast<And*>(imp->get_left()->clone());
+            auto imp_i = new Implies(nullptr, nullptr);
+            auto not_right = new Not(and_i->get_right()->clone());
+            imp_i->set_left(and_i->get_left()->clone());
+            imp_i->set_right(not_right);
+            auto new_form = new Not(imp_i);
+            imp->set_left(new_form);
+        }
+        if (dynamic_cast<And*>(imp->get_right())){
+            auto and_i = dynamic_cast<And*>(imp->get_right()->clone());
+            auto imp_i = new Implies(nullptr, nullptr);
+            auto not_right = new Not(and_i->get_right()->clone());
+            imp_i->set_left(and_i->get_left()->clone());
+            imp_i->set_right(not_right);
+            auto new_form = new Not(imp_i);
+            imp->set_right(new_form);
+        }
+        if (dynamic_cast<Implies*>(imp->get_left())) imp->set_left(rule_dis(imp->get_left()));
+        if (dynamic_cast<Implies*>(imp->get_right())) imp->set_right(rule_dis(imp->get_right()));
+        res = imp;
+    }
+    return res;
 }
+
+
+std::vector<Formula*> deduction(Formula* formula){
+    std::vector<Formula*> gamma;
+    auto curr_imp = dynamic_cast<Implies*>(formula);
+    while(true){
+        if (auto left = dynamic_cast<Implies*>(curr_imp->get_left())) gamma.push_back(left);
+        if (auto left = dynamic_cast<Not*>(curr_imp->get_left())) gamma.push_back(left);
+        if (auto left = dynamic_cast<Variable*>(curr_imp->get_left())) gamma.push_back(left);
+        
+        if (dynamic_cast<Implies*>(curr_imp->get_right())) curr_imp = dynamic_cast<Implies*>(curr_imp->get_right());
+        else if (dynamic_cast<Variable*>(curr_imp->get_right())){
+            gamma.push_back(dynamic_cast<Variable*>(curr_imp->get_right()));
+            break;
+        }
+        else if (dynamic_cast<Not*>(curr_imp->get_right())){
+            gamma.push_back(dynamic_cast<Not*>(curr_imp->get_right()));
+            break;
+        }
+    }
+    return gamma;
+}
+
 
 void task1(Formula* formula, Formula* aksiome1, Formula* aksiome2, Formula* aksiome3){
     std::vector<Formula*> param;
@@ -67,239 +121,54 @@ void task1(Formula* formula, Formula* aksiome1, Formula* aksiome2, Formula* aksi
     std::vector<Formula*> new_aks_3 = new_aks3(aksiome3, param);
     for (auto x: new_aks_3){
         gamma.push_back(x);
-    }
-
-    for (auto i: new_aks_1){
-        for (auto j: new_aks_2){
-            auto i_d = dynamic_cast<Implies*>(i);
-            auto j_d = dynamic_cast<Implies*>(j);
-            if (Modes_ponens(i_d,j_d) != nullptr){
-                i_d->print(std::cout);
-                std::cout<<"\t";
-                j_d->print(std::cout);
-                std::cout<<std::endl;
-                gamma.push_back(Modes_ponens(i_d,j_d));
-            }
-        }
-    }
-    std::cout<<std::endl;
-    for (auto g: gamma){
+    }   
+    std::cout << "Go to deduction..." << std::endl;
+    std::vector<Formula*> ded_gamma = deduction(formula);
+    std::cout << "Deduction ready." << std::endl;
+    for (auto g: ded_gamma){
+        gamma.push_back(g);
         g->print(std::cout);
         std::cout<<std::endl;
     }
 
-     for (int i = 0; i < gamma.size()-1; i++){
-        for (int j = i+1; j < gamma.size(); j++){
-            auto i_d = dynamic_cast<Implies*>(gamma[i]);
-            auto j_d = dynamic_cast<Implies*>(gamma[j]);
-            if (Modes_ponens(i_d,j_d) != nullptr){
-                i_d->print(std::cout);
-                std::cout<<"\t";
-                j_d->print(std::cout);
-                std::cout<<std::endl;
-                gamma.push_back(Modes_ponens(i_d,j_d));
+    for (auto i = 0; i < gamma.size()-1; i++){
+        for (auto j = i+1; j < gamma.size(); j++){
+            if (auto f2 = dynamic_cast<Implies*>(gamma[j])){
+                auto res = Modes_ponens(gamma[i], f2);
+                if (res != nullptr) gamma.push_back(res);
             }
         }
     }
-    std::cout<<std::endl;
-    std::ofstream out("result.txt");
-
+    for (auto i = 0; i < gamma.size()-1; i++){
+        for (auto j = i+1; j < gamma.size(); j++){
+            if (auto f2 =dynamic_cast<Implies*>(gamma[j])){
+                auto res = Modes_ponens(gamma[i], f2);
+                if (res != nullptr) gamma.push_back(res);
+            }
+        }
+    }
+    
+    std::ofstream out("../result.txt");
     for (auto g: gamma){
         g->print(out);
         out<<std::endl;
     }
     out.close();
-
-    for (int i = 0; i < gamma.size()-1; i++){
-        for (int j = i+1; j < gamma.size(); j++){
-            auto i_d = dynamic_cast<Implies*>(gamma[i]);
-            auto j_d = dynamic_cast<Implies*>(gamma[j]);
-            if (Modes_ponens(i_d,j_d) != nullptr){
-                i_d->print(std::cout);
-                std::cout<<"\t";
-                j_d->print(std::cout);
-                std::cout<<std::endl;
-                gamma.push_back(Modes_ponens(i_d,j_d));
-            }
-        }
-    }
 }
 
-
 int main() {
+    auto aksiome1 = aksiome_1();
+    auto aksiome2 = aksiome_2();
+    auto aksiome3 = aksiome_3();
 
-    auto A = new Variable('P');
-    auto B = new Variable('Q');
-    auto C = new Variable('R');
-    auto D = new Variable('T');
+    auto form = constr_formula("../input.txt");
+    form = rule_con(form);
+    form = rule_dis(form);
 
-    Modes_ponens(A , new Implies(A , B))->print(std::cout);
-    std::cout << " <-- Modes ponens" << std::endl;
+    form->print(std::cout);
+    std::cout<<std::endl;
 
-    Modes_tollens(new Implies(A , B) , new Not(B))->print(std::cout);
-    std::cout << " <-- Modes tollens" << std::endl;
+    task1(form, aksiome1, aksiome2, aksiome3);
 
-    Disjunctive_syllogism(new Not(A) , new Or(A , B))->print(std::cout);
-    std::cout << " <-- Дизъюнктивный силлогизм" << std::endl;
-
-    Hypothetical_syllogism(new Implies(A , B) , new Implies(B , C))->print(std::cout);
-    std::cout << " <-- Гипотетический силлогизм" << std::endl;
-
-    Disjunctive_syllogism_xor(A , new Xor(A , B))->print(std::cout);
-    std::cout << " <-- Разделительный силлогизм	" << std::endl;
-
-    Simple_constructive_dilemma(new Implies(A , C) , new Implies(B , C) , new Or(A , B))->print(std::cout);
-    std::cout << " <-- Простая конструктивная дилемма" << std::endl;
-
-    Complex_constructive_dilemma(new Implies(A , C) , new Implies(B , D) , new Or(A , B))->print(std::cout);
-    std::cout << " <-- Сложная конструктивная дилемма" << std::endl;
-
-    Simple_destructive_dilemma(new Implies(A , C) , new Implies(A , B) , new Or(new Not(C) , new Not(B)))->print(std::cout);
-    std::cout << " <-- Простая деструктивная дилемма" << std::endl;
-
-    Complex_destructive_dilemma(new Implies(A , C) , new Implies(B , D) , new Or(new Not(C) , new Not(D)))->print(std::cout);
-    std::cout << " <-- Сложная деструктивная дилемма" << std::endl;
-
-    //task1(form, aksiome1, aksiome2, aksiome3);
-
-    // std::vector<Formula*> param;
-    // take_params(form, param);
-
-    // for (auto i: param){
-    //     i->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-
-    // std::vector<Formula*> new_aks_1 = new_aks1(aksiome1, param);
-
-    // for (auto i: new_aks_1){
-    //     i->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-    // std::cout<<std::endl;
-    // std::vector<Formula*> new_aks_2 = new_aks2(aksiome2, param);
-
-    // for (auto i: new_aks_2){
-    //     i->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-
-    // std::cout<<std::endl;
-    
-    // auto r = dynamic_cast<Implies*>(form);
-    // auto new_input = rule_con(r->get_left());
-    // auto new_form = r->clone();
-    // new_form->set_left(new_input);
-    // std::vector<Formula*> new_param;
-    // take_params(new_form, new_param);
-    // for (auto i: new_param){
-    //     i->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-    // std::cout<<std::endl;
-
-    // std::vector<Formula*> new_aks_1_1 = new_aks1(aksiome1, new_param);
-
-    // for (auto i: new_aks_1_1){
-    //     i->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-    // std::cout<<std::endl;
-    // std::vector<Formula*> new_aks_2_2 = new_aks2(aksiome2, new_param);
-
-    // for (auto i: new_aks_2_2){
-    //     i->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-
-    // std::cout<<std::endl;
-    
-    // std::vector<Formula*> new_aks_3 = new_aks3(aksiome3, param);
-
-    // for (auto i: new_aks_3){
-    //     i->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-    // std::vector<Formula*> aks;
-    // aks.push_back(new Variable('A'));
-    // aks.push_back(new Variable('B'));
-    // for (int l = 0; l < aks.size(); l++){
-    //     auto j = aks[l];
-    //     for (auto i: new_aks_1){
-    //         //const char A = 'A';
-    //         if (auto j_d = dynamic_cast<Variable*>(j)){
-    //             auto i_d = dynamic_cast<Implies*>(i);
-    //             if (Modes_ponens(j_d, i_d) != nullptr){
-    //                     aks.push_back(Modes_ponens(j_d, i_d));
-    //                     std::cout<<std::endl;
-    //                 }
-    //                 else std::cout<<"null\n";
-    //         }
-
-    //         if (auto j_d = dynamic_cast<Implies*>(j)){
-    //             auto i_d = dynamic_cast<Implies*>(i);
-    //             if (Modes_ponens(j_d, i_d) != nullptr){
-    //                     aks.push_back(Modes_ponens(j_d, i_d));
-    //                     std::cout<<std::endl;
-    //                 }
-    //             else std::cout<<"null\n";
-    //         }
-    //     }
-    //     for (auto x: aks){
-    //     x->print(std::cout);
-    //     std::cout<<std::endl;
-    // }
-    // }
-    // for (auto x: aks){
-    //     x->print(std::cout);
-    //     std::cout<<std::endl;
- //   }
-    // for (auto i: new_aks_1){
-    //     for (auto j: new_aks_2){
-    //         auto i_d = dynamic_cast<Implies*>(i);
-    //         auto j_d = dynamic_cast<Implies*>(j);
-    //         if (Modes_ponens(i_d,j_d) != nullptr){
-    //             Modes_ponens(i_d,j_d)->print(std::cout);
-    //         }
-    //         else std::cout<<"null\n";
-    //     }
-    // }
-
-    // for (auto i: new_aks_1){
-    //     for (auto j: new_aks_3){
-    //         auto i_d = dynamic_cast<Implies*>(i);
-    //         auto j_d = dynamic_cast<Implies*>(j);
-    //         if (Modes_ponens(i_d,j_d) != nullptr){
-    //             Modes_ponens(i_d,j_d)->print(std::cout);
-    //         }
-    //         else std::cout<<"null\n";
-    //     }
-    // }
-
-    // for (auto i: new_aks_2){
-    //     for (auto j: new_aks_3){
-    //         auto i_d = dynamic_cast<Implies*>(i);
-    //         auto j_d = dynamic_cast<Implies*>(j);
-    //         if (Modes_ponens(i_d,j_d) != nullptr){
-    //             Modes_ponens(i_d,j_d)->print(std::cout);
-    //         }
-    //         else std::cout<<"null\n";
-    //     }
-    // }
-
-    // for (auto i: new_aks_3){
-    //     for (auto j: new_aks_2){
-    //         auto i_d = dynamic_cast<Implies*>(i);
-    //         auto j_d = dynamic_cast<Implies*>(j);
-    //         if (Modes_ponens(i_d,j_d) != nullptr){
-    //             Modes_ponens(i_d,j_d)->print(std::cout);
-    //         }
-    //         else std::cout<<"null\n";
-    //     }
-    // }
-
-
-    // delete aksiome1;
-    // delete aksiome2;
     return 0;
 }

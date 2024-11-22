@@ -212,4 +212,6 @@ CMakeFiles/mlata.dir/task1.cpp.o: \
  /home/riejxx/Документы/GitHub/mlata/project/includes/Disjunctive_syllogism_xor.hpp \
  /home/riejxx/Документы/GitHub/mlata/project/includes/Xor.hpp \
  /home/riejxx/Документы/GitHub/mlata/project/includes/Hypothetical_syllogism.hpp \
- /home/riejxx/Документы/GitHub/mlata/project/includes/Modes_tollens.hpp
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Modes_tollens.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Simple_constructive_dilemma.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Simple_destructive_dilemma.hpp

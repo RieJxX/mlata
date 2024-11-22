@@ -1,9 +1,9 @@
 CMakeFiles/mlata.dir/src/Constructor.cpp.o: \
- /home/riejxx/programming/project/src/Constructor.cpp \
+ /home/riejxx/Документы/GitHub/mlata/project/src/Constructor.cpp \
  /usr/include/stdc-predef.h \
- /home/riejxx/programming/project/src/../includes/Constructor.hpp \
- /home/riejxx/programming/project/src/../includes/Variable.hpp \
- /home/riejxx/programming/project/src/../includes/Formula.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/src/../includes/Constructor.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/src/../includes/Variable.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/src/../includes/Formula.hpp \
  /usr/include/c++/10/iostream \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
@@ -193,7 +193,7 @@ CMakeFiles/mlata.dir/src/Constructor.cpp.o: \
  /usr/include/c++/10/unordered_map /usr/include/c++/10/bits/hashtable.h \
  /usr/include/c++/10/bits/hashtable_policy.h \
  /usr/include/c++/10/bits/unordered_map.h \
- /home/riejxx/programming/project/src/../includes/Not.hpp \
- /home/riejxx/programming/project/src/../includes/And.hpp \
- /home/riejxx/programming/project/src/../includes/Or.hpp \
- /home/riejxx/programming/project/src/../includes/Implies.hpp
+ /home/riejxx/Документы/GitHub/mlata/project/src/../includes/Not.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/src/../includes/And.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/src/../includes/Or.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/src/../includes/Implies.hpp

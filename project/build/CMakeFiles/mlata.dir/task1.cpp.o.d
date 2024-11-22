@@ -1,6 +1,6 @@
 CMakeFiles/mlata.dir/task1.cpp.o: \
- /home/riejxx/programming/project/task1.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/10/iostream \
+ /home/riejxx/Документы/GitHub/mlata/project/task1.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/10/iostream \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -189,20 +189,27 @@ CMakeFiles/mlata.dir/task1.cpp.o: \
  /usr/include/c++/10/unordered_map /usr/include/c++/10/bits/hashtable.h \
  /usr/include/c++/10/bits/hashtable_policy.h \
  /usr/include/c++/10/bits/unordered_map.h \
- /home/riejxx/programming/project/includes/Implies.hpp \
- /home/riejxx/programming/project/includes/Formula.hpp \
- /home/riejxx/programming/project/includes/And.hpp \
- /home/riejxx/programming/project/includes/Not.hpp \
- /home/riejxx/programming/project/includes/Or.hpp \
- /home/riejxx/programming/project/includes/Variable.hpp \
- /home/riejxx/programming/project/includes/Constructor.hpp \
- /home/riejxx/programming/project/includes/Variable.hpp \
- /home/riejxx/programming/project/includes/Not.hpp \
- /home/riejxx/programming/project/includes/And.hpp \
- /home/riejxx/programming/project/includes/Or.hpp \
- /home/riejxx/programming/project/includes/Implies.hpp \
- /home/riejxx/programming/project/includes/Aksiomes.hpp \
- /home/riejxx/programming/project/includes/Constructor.hpp \
- /home/riejxx/programming/project/includes/New_aks.hpp \
- /home/riejxx/programming/project/includes/Formula.hpp \
- /home/riejxx/programming/project/includes/Modes_ponens.hpp
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Implies.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Formula.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/And.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Not.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Or.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Variable.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Constructor.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Variable.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Not.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/And.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Or.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Implies.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Aksiomes.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Constructor.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/New_aks.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Formula.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Modes_ponens.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Complex_constructive_dilemma.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Complex_destructive_dilemma.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Disjunctive_syllogism.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Disjunctive_syllogism_xor.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Xor.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Hypothetical_syllogism.hpp \
+ /home/riejxx/Документы/GitHub/mlata/project/includes/Modes_tollens.hpp

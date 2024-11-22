@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/riejxx/programming/project
+CMAKE_SOURCE_DIR = /home/riejxx/Документы/GitHub/mlata/project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/riejxx/programming/project/build
+CMAKE_BINARY_DIR = /home/riejxx/Документы/GitHub/mlata/project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/riejxx/programming/project/build/CMakeFiles /home/riejxx/programming/project/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles /home/riejxx/Документы/GitHub/mlata/project/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/riejxx/programming/project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,30 +177,6 @@ src/Constructor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlata.dir/build.make CMakeFiles/mlata.dir/src/Constructor.cpp.s
 .PHONY : src/Constructor.cpp.s
 
-src/Modes_ponens.o: src/Modes_ponens.cpp.o
-.PHONY : src/Modes_ponens.o
-
-# target to build an object file
-src/Modes_ponens.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlata.dir/build.make CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o
-.PHONY : src/Modes_ponens.cpp.o
-
-src/Modes_ponens.i: src/Modes_ponens.cpp.i
-.PHONY : src/Modes_ponens.i
-
-# target to preprocess a source file
-src/Modes_ponens.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlata.dir/build.make CMakeFiles/mlata.dir/src/Modes_ponens.cpp.i
-.PHONY : src/Modes_ponens.cpp.i
-
-src/Modes_ponens.s: src/Modes_ponens.cpp.s
-.PHONY : src/Modes_ponens.s
-
-# target to generate assembly for a file
-src/Modes_ponens.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlata.dir/build.make CMakeFiles/mlata.dir/src/Modes_ponens.cpp.s
-.PHONY : src/Modes_ponens.cpp.s
-
 src/New_aks.o: src/New_aks.cpp.o
 .PHONY : src/New_aks.o
 
@@ -264,9 +240,6 @@ help:
 	@echo "... src/Constructor.o"
 	@echo "... src/Constructor.i"
 	@echo "... src/Constructor.s"
-	@echo "... src/Modes_ponens.o"
-	@echo "... src/Modes_ponens.i"
-	@echo "... src/Modes_ponens.s"
 	@echo "... src/New_aks.o"
 	@echo "... src/New_aks.i"
 	@echo "... src/New_aks.s"

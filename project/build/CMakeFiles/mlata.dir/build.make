@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/riejxx/programming/project
+CMAKE_SOURCE_DIR = /home/riejxx/Документы/GitHub/mlata/project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/riejxx/programming/project/build
+CMAKE_BINARY_DIR = /home/riejxx/Документы/GitHub/mlata/project/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mlata.dir/depend.make
@@ -72,78 +72,63 @@ include CMakeFiles/mlata.dir/flags.make
 CMakeFiles/mlata.dir/src/Aksiomes.cpp.o: CMakeFiles/mlata.dir/flags.make
 CMakeFiles/mlata.dir/src/Aksiomes.cpp.o: ../src/Aksiomes.cpp
 CMakeFiles/mlata.dir/src/Aksiomes.cpp.o: CMakeFiles/mlata.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/programming/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mlata.dir/src/Aksiomes.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/src/Aksiomes.cpp.o -MF CMakeFiles/mlata.dir/src/Aksiomes.cpp.o.d -o CMakeFiles/mlata.dir/src/Aksiomes.cpp.o -c /home/riejxx/programming/project/src/Aksiomes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mlata.dir/src/Aksiomes.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/src/Aksiomes.cpp.o -MF CMakeFiles/mlata.dir/src/Aksiomes.cpp.o.d -o CMakeFiles/mlata.dir/src/Aksiomes.cpp.o -c /home/riejxx/Документы/GitHub/mlata/project/src/Aksiomes.cpp
 
 CMakeFiles/mlata.dir/src/Aksiomes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mlata.dir/src/Aksiomes.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/programming/project/src/Aksiomes.cpp > CMakeFiles/mlata.dir/src/Aksiomes.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/Документы/GitHub/mlata/project/src/Aksiomes.cpp > CMakeFiles/mlata.dir/src/Aksiomes.cpp.i
 
 CMakeFiles/mlata.dir/src/Aksiomes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mlata.dir/src/Aksiomes.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/programming/project/src/Aksiomes.cpp -o CMakeFiles/mlata.dir/src/Aksiomes.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/Документы/GitHub/mlata/project/src/Aksiomes.cpp -o CMakeFiles/mlata.dir/src/Aksiomes.cpp.s
 
 CMakeFiles/mlata.dir/src/Constructor.cpp.o: CMakeFiles/mlata.dir/flags.make
 CMakeFiles/mlata.dir/src/Constructor.cpp.o: ../src/Constructor.cpp
 CMakeFiles/mlata.dir/src/Constructor.cpp.o: CMakeFiles/mlata.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/programming/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mlata.dir/src/Constructor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/src/Constructor.cpp.o -MF CMakeFiles/mlata.dir/src/Constructor.cpp.o.d -o CMakeFiles/mlata.dir/src/Constructor.cpp.o -c /home/riejxx/programming/project/src/Constructor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mlata.dir/src/Constructor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/src/Constructor.cpp.o -MF CMakeFiles/mlata.dir/src/Constructor.cpp.o.d -o CMakeFiles/mlata.dir/src/Constructor.cpp.o -c /home/riejxx/Документы/GitHub/mlata/project/src/Constructor.cpp
 
 CMakeFiles/mlata.dir/src/Constructor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mlata.dir/src/Constructor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/programming/project/src/Constructor.cpp > CMakeFiles/mlata.dir/src/Constructor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/Документы/GitHub/mlata/project/src/Constructor.cpp > CMakeFiles/mlata.dir/src/Constructor.cpp.i
 
 CMakeFiles/mlata.dir/src/Constructor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mlata.dir/src/Constructor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/programming/project/src/Constructor.cpp -o CMakeFiles/mlata.dir/src/Constructor.cpp.s
-
-CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o: CMakeFiles/mlata.dir/flags.make
-CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o: ../src/Modes_ponens.cpp
-CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o: CMakeFiles/mlata.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/programming/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o -MF CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o.d -o CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o -c /home/riejxx/programming/project/src/Modes_ponens.cpp
-
-CMakeFiles/mlata.dir/src/Modes_ponens.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mlata.dir/src/Modes_ponens.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/programming/project/src/Modes_ponens.cpp > CMakeFiles/mlata.dir/src/Modes_ponens.cpp.i
-
-CMakeFiles/mlata.dir/src/Modes_ponens.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mlata.dir/src/Modes_ponens.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/programming/project/src/Modes_ponens.cpp -o CMakeFiles/mlata.dir/src/Modes_ponens.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/Документы/GitHub/mlata/project/src/Constructor.cpp -o CMakeFiles/mlata.dir/src/Constructor.cpp.s
 
 CMakeFiles/mlata.dir/src/New_aks.cpp.o: CMakeFiles/mlata.dir/flags.make
 CMakeFiles/mlata.dir/src/New_aks.cpp.o: ../src/New_aks.cpp
 CMakeFiles/mlata.dir/src/New_aks.cpp.o: CMakeFiles/mlata.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/programming/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mlata.dir/src/New_aks.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/src/New_aks.cpp.o -MF CMakeFiles/mlata.dir/src/New_aks.cpp.o.d -o CMakeFiles/mlata.dir/src/New_aks.cpp.o -c /home/riejxx/programming/project/src/New_aks.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mlata.dir/src/New_aks.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/src/New_aks.cpp.o -MF CMakeFiles/mlata.dir/src/New_aks.cpp.o.d -o CMakeFiles/mlata.dir/src/New_aks.cpp.o -c /home/riejxx/Документы/GitHub/mlata/project/src/New_aks.cpp
 
 CMakeFiles/mlata.dir/src/New_aks.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mlata.dir/src/New_aks.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/programming/project/src/New_aks.cpp > CMakeFiles/mlata.dir/src/New_aks.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/Документы/GitHub/mlata/project/src/New_aks.cpp > CMakeFiles/mlata.dir/src/New_aks.cpp.i
 
 CMakeFiles/mlata.dir/src/New_aks.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mlata.dir/src/New_aks.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/programming/project/src/New_aks.cpp -o CMakeFiles/mlata.dir/src/New_aks.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/Документы/GitHub/mlata/project/src/New_aks.cpp -o CMakeFiles/mlata.dir/src/New_aks.cpp.s
 
 CMakeFiles/mlata.dir/task1.cpp.o: CMakeFiles/mlata.dir/flags.make
 CMakeFiles/mlata.dir/task1.cpp.o: ../task1.cpp
 CMakeFiles/mlata.dir/task1.cpp.o: CMakeFiles/mlata.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/programming/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mlata.dir/task1.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/task1.cpp.o -MF CMakeFiles/mlata.dir/task1.cpp.o.d -o CMakeFiles/mlata.dir/task1.cpp.o -c /home/riejxx/programming/project/task1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mlata.dir/task1.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlata.dir/task1.cpp.o -MF CMakeFiles/mlata.dir/task1.cpp.o.d -o CMakeFiles/mlata.dir/task1.cpp.o -c /home/riejxx/Документы/GitHub/mlata/project/task1.cpp
 
 CMakeFiles/mlata.dir/task1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mlata.dir/task1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/programming/project/task1.cpp > CMakeFiles/mlata.dir/task1.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/riejxx/Документы/GitHub/mlata/project/task1.cpp > CMakeFiles/mlata.dir/task1.cpp.i
 
 CMakeFiles/mlata.dir/task1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mlata.dir/task1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/programming/project/task1.cpp -o CMakeFiles/mlata.dir/task1.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/riejxx/Документы/GitHub/mlata/project/task1.cpp -o CMakeFiles/mlata.dir/task1.cpp.s
 
 # Object files for target mlata
 mlata_OBJECTS = \
 "CMakeFiles/mlata.dir/src/Aksiomes.cpp.o" \
 "CMakeFiles/mlata.dir/src/Constructor.cpp.o" \
-"CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o" \
 "CMakeFiles/mlata.dir/src/New_aks.cpp.o" \
 "CMakeFiles/mlata.dir/task1.cpp.o"
 
@@ -152,12 +137,11 @@ mlata_EXTERNAL_OBJECTS =
 
 mlata: CMakeFiles/mlata.dir/src/Aksiomes.cpp.o
 mlata: CMakeFiles/mlata.dir/src/Constructor.cpp.o
-mlata: CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o
 mlata: CMakeFiles/mlata.dir/src/New_aks.cpp.o
 mlata: CMakeFiles/mlata.dir/task1.cpp.o
 mlata: CMakeFiles/mlata.dir/build.make
 mlata: CMakeFiles/mlata.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/riejxx/programming/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable mlata"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable mlata"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mlata.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -169,6 +153,6 @@ CMakeFiles/mlata.dir/clean:
 .PHONY : CMakeFiles/mlata.dir/clean
 
 CMakeFiles/mlata.dir/depend:
-	cd /home/riejxx/programming/project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/riejxx/programming/project /home/riejxx/programming/project /home/riejxx/programming/project/build /home/riejxx/programming/project/build /home/riejxx/programming/project/build/CMakeFiles/mlata.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/riejxx/Документы/GitHub/mlata/project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/riejxx/Документы/GitHub/mlata/project /home/riejxx/Документы/GitHub/mlata/project /home/riejxx/Документы/GitHub/mlata/project/build /home/riejxx/Документы/GitHub/mlata/project/build /home/riejxx/Документы/GitHub/mlata/project/build/CMakeFiles/mlata.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mlata.dir/depend
 

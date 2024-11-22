@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/mlata.dir/src/Aksiomes.cpp.o CMakeFiles/mlata.dir/src/Constructor.cpp.o CMakeFiles/mlata.dir/src/Modes_ponens.cpp.o CMakeFiles/mlata.dir/src/New_aks.cpp.o CMakeFiles/mlata.dir/task1.cpp.o -o mlata 
+/usr/bin/c++ CMakeFiles/mlata.dir/src/Aksiomes.cpp.o CMakeFiles/mlata.dir/src/Constructor.cpp.o CMakeFiles/mlata.dir/src/New_aks.cpp.o CMakeFiles/mlata.dir/task1.cpp.o -o mlata 

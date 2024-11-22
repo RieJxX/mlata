@@ -16,7 +16,14 @@
 #include "includes/New_aks.hpp"
 #include "includes/Formula.hpp"
 #include "includes/Modes_ponens.hpp"
-
+#include "includes/Complex_constructive_dilemma.hpp"
+#include "includes/Complex_destructive_dilemma.hpp"
+#include "includes/Disjunctive_syllogism.hpp"
+#include "includes/Disjunctive_syllogism_xor.hpp"
+#include "includes/Hypothetical_syllogism.hpp"
+#include "includes/Modes_tollens.hpp"
+#include "includes/Simple_constructive_dilemma.hpp"
+#include "includes/Simple_destructive_dilemma.hpp"
 
 Formula* rule_dis(Or* form){
     auto new_form = new Implies(nullptr, nullptr);
@@ -41,18 +48,6 @@ Not* rule_con(Formula* form_i) {
 
     return new_form;
 }
-
-//Modes_ponens
-template<typename T1, typename T2> Formula* Modes_ponens(T1 formula1, T2 formula2) {
-    if (formula1->equals(*formula2->get_left())) {
-        //std::cout << "hello\n";
-        return formula2->get_right();
-    } else {
-        // обработка??
-        return nullptr;
-    }
-}
-
 
 void task1(Formula* formula, Formula* aksiome1, Formula* aksiome2, Formula* aksiome3){
     std::vector<Formula*> param;
@@ -133,17 +128,37 @@ void task1(Formula* formula, Formula* aksiome1, Formula* aksiome2, Formula* aksi
 
 int main() {
 
-    // std::ofstream outFile("result.txt");
+    auto A = new Variable('P');
+    auto B = new Variable('Q');
+    auto C = new Variable('R');
+    auto D = new Variable('T');
 
-    auto aksiome1 = aksiome_1();
-    std::cout<<"AKS1"<<std::endl;
-    auto aksiome2 = aksiome_2();
-    std::cout<<"AKS2"<<std::endl;
-    auto aksiome3 = aksiome_3();
-    std::cout<<"AKS3"<<std::endl;
+    Modes_ponens(A , new Implies(A , B))->print(std::cout);
+    std::cout << " <-- Modes ponens" << std::endl;
 
-    auto form = tree_arch("../input.txt");
-    form->print(std::cout);
+    Modes_tollens(new Implies(A , B) , new Not(B))->print(std::cout);
+    std::cout << " <-- Modes tollens" << std::endl;
+
+    Disjunctive_syllogism(new Not(A) , new Or(A , B))->print(std::cout);
+    std::cout << " <-- Дизъюнктивный силлогизм" << std::endl;
+
+    Hypothetical_syllogism(new Implies(A , B) , new Implies(B , C))->print(std::cout);
+    std::cout << " <-- Гипотетический силлогизм" << std::endl;
+
+    Disjunctive_syllogism_xor(A , new Xor(A , B))->print(std::cout);
+    std::cout << " <-- Разделительный силлогизм	" << std::endl;
+
+    Simple_constructive_dilemma(new Implies(A , C) , new Implies(B , C) , new Or(A , B))->print(std::cout);
+    std::cout << " <-- Простая конструктивная дилемма" << std::endl;
+
+    Complex_constructive_dilemma(new Implies(A , C) , new Implies(B , D) , new Or(A , B))->print(std::cout);
+    std::cout << " <-- Сложная конструктивная дилемма" << std::endl;
+
+    Simple_destructive_dilemma(new Implies(A , C) , new Implies(A , B) , new Or(new Not(C) , new Not(B)))->print(std::cout);
+    std::cout << " <-- Простая деструктивная дилемма" << std::endl;
+
+    Complex_destructive_dilemma(new Implies(A , C) , new Implies(B , D) , new Or(new Not(C) , new Not(D)))->print(std::cout);
+    std::cout << " <-- Сложная деструктивная дилемма" << std::endl;
 
     //task1(form, aksiome1, aksiome2, aksiome3);
 
@@ -284,7 +299,7 @@ int main() {
     // }
 
 
-    delete aksiome1;
-    delete aksiome2;
+    // delete aksiome1;
+    // delete aksiome2;
     return 0;
 }

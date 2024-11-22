@@ -1,0 +1,35 @@
+    auto A = new Variable('P');
+    auto B = new Variable('Q');
+    auto C = new Variable('R');
+    auto D = new Variable('T');
+
+    Modes_ponens(A , new Implies(A , B))->print(std::cout);
+    std::cout << " <-- Modes ponens" << std::endl;
+
+    Modes_tollens(new Implies(A , B) , new Not(B))->print(std::cout);
+    std::cout << " <-- Modes tollens" << std::endl;
+
+    Disjunctive_syllogism(new Not(A) , new Or(A , B))->print(std::cout);
+    std::cout << " <-- Дизъюнктивный силлогизм" << std::endl;
+
+    Hypothetical_syllogism(new Implies(A , B) , new Implies(B , C))->print(std::cout);
+    std::cout << " <-- Гипотетический силлогизм" << std::endl;
+
+    Disjunctive_syllogism_xor(A , new Xor(A , B))->print(std::cout);
+    std::cout << " <-- Разделительный силлогизм	" << std::endl;
+
+    Simple_constructive_dilemma(new Implies(A , C) , new Implies(B , C) , new Or(A , B))->print(std::cout);
+    std::cout << " <-- Простая конструктивная дилемма" << std::endl;
+
+    Complex_constructive_dilemma(new Implies(A , C) , new Implies(B , D) , new Or(A , B))->print(std::cout);
+    std::cout << " <-- Сложная конструктивная дилемма" << std::endl;
+
+    Simple_destructive_dilemma(new Implies(A , C) , new Implies(A , B) , new Or(new Not(C) , new Not(B)))->print(std::cout);
+    std::cout << " <-- Простая деструктивная дилемма" << std::endl;
+
+    Complex_destructive_dilemma(new Implies(A , C) , new Implies(B , D) , new Or(new Not(C) , new Not(D)))->print(std::cout);
+    std::cout << " <-- Сложная деструктивная дилемма" << std::endl;
+    delete(A);
+    delete(B);
+    delete(C);
+    delete(D);

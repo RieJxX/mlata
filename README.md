@@ -60,10 +60,9 @@ Modus ponens:   A, A→B ⊢  B
 #### Задание 1
 A8:   B→(A∨B)
 deduction.txt
-curr formula: ((A > C) > ((B > C) > ((!A > B) > C)))	{(A > C) }
-curr formula: ((B > C) > ((!A > B) > C))	{(A > C) (B > C) }
-curr formula: ((!A > B) > C)	{(A > C) (B > C) (!A > B) }
-{(A > C) (B > C) (!A > B) C }
+curr formula: (B > (!A > B))	{B }
+curr formula: (!A > B)	{B !A }
+{B !A B }
 
 result.txt
 (B > (B > B))

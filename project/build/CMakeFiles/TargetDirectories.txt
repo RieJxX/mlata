@@ -1,3 +1,0 @@
-/home/julia/3 курс/mlata/project/build/CMakeFiles/rebuild_cache.dir
-/home/julia/3 курс/mlata/project/build/CMakeFiles/edit_cache.dir
-/home/julia/3 курс/mlata/project/build/CMakeFiles/mlata.dir

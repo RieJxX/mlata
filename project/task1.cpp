@@ -83,22 +83,68 @@ Formula* rule_con(Formula* form){
 
 std::vector<Formula*> deduction(Formula* formula){
     std::vector<Formula*> gamma;
+    std::ofstream out("../deduction.txt");
     auto curr_imp = dynamic_cast<Implies*>(formula);
     while(true){
-        if (auto left = dynamic_cast<Implies*>(curr_imp->get_left())) gamma.push_back(left);
-        if (auto left = dynamic_cast<Not*>(curr_imp->get_left())) gamma.push_back(left);
-        if (auto left = dynamic_cast<Variable*>(curr_imp->get_left())) gamma.push_back(left);
+        out<<"curr formula: ";
+        curr_imp->print(out);
+        out<<"\t";
+        if (auto left = dynamic_cast<Implies*>(curr_imp->get_left())){
+            gamma.push_back(left);
+            out<<"{";
+            for (auto g: gamma){
+                g->print(out);
+                out<<" ";
+            }
+            out<<"}";
+            out<<std::endl;
+        }
+        if (auto left = dynamic_cast<Not*>(curr_imp->get_left())){
+            gamma.push_back(left);
+            out<<"{";
+            for (auto g: gamma){
+                g->print(out);
+                out<<" ";
+            }
+            out<<"}";
+            out<<std::endl;
+        }
+        if (auto left = dynamic_cast<Variable*>(curr_imp->get_left())){
+            gamma.push_back(left);
+            out<<"{";
+            for (auto g: gamma){
+                g->print(out);
+                out<<" ";
+            }
+            out<<"}";
+            out<<std::endl;
+        }
         
         if (dynamic_cast<Implies*>(curr_imp->get_right())) curr_imp = dynamic_cast<Implies*>(curr_imp->get_right());
         else if (dynamic_cast<Variable*>(curr_imp->get_right())){
             gamma.push_back(dynamic_cast<Variable*>(curr_imp->get_right()));
+                out<<"{";
+                for (auto g: gamma){
+                    g->print(out);
+                    out<<" ";
+                }
+                out<<"}";
+                out<<std::endl;
             break;
         }
         else if (dynamic_cast<Not*>(curr_imp->get_right())){
             gamma.push_back(dynamic_cast<Not*>(curr_imp->get_right()));
+            out<<"{";
+            for (auto g: gamma){
+                g->print(out);
+                out<<" ";
+            }
+            out<<"}";
+            out<<std::endl;
             break;
         }
     }
+    out.close();
     return gamma;
 }
 
@@ -125,29 +171,58 @@ void task1(Formula* formula, Formula* aksiome1, Formula* aksiome2, Formula* aksi
     std::cout << "Go to deduction..." << std::endl;
     std::vector<Formula*> ded_gamma = deduction(formula);
     std::cout << "Deduction ready." << std::endl;
-    for (auto g: ded_gamma){
-        gamma.push_back(g);
-        g->print(std::cout);
-        std::cout<<std::endl;
+    for (int i = 0; i < ded_gamma.size()-1; i++){
+        gamma.push_back(ded_gamma[i]);
     }
 
-    for (auto i = 0; i < gamma.size()-1; i++){
-        for (auto j = i+1; j < gamma.size(); j++){
-            if (auto f2 = dynamic_cast<Implies*>(gamma[j])){
-                auto res = Modes_ponens(gamma[i], f2);
-                if (res != nullptr) gamma.push_back(res);
+    Formula* new_form = ded_gamma[ded_gamma.size()-1];
+    int flag = 1;
+    while(true){
+        // for (auto i = 0; i < gamma.size()-1; i++){
+        //     for (auto j = i+1; j < gamma.size(); j++){
+        //         if (auto f2 = dynamic_cast<Implies*>(gamma[j])){
+        //             auto res = Modes_ponens(gamma[i], f2);
+        //             if (res != nullptr) {
+        //                 gamma.push_back(res);
+        //                 if (res->equals((*new_form))){
+        //                     break;
+        //                 }
+
+        //             }
+        //         }
+        //     }
+        // }
+        int size = gamma.size();
+        std::vector<Formula*> new_gamma;
+        for (auto i = 0; i < size; i++){
+            if (flag){
+            for (auto j = 0; j < size; j++){
+                if (flag){
+                    if (auto f2 = dynamic_cast<Implies*>(gamma[j])){
+                        auto res = Modes_ponens(gamma[i], f2);
+                        if (res != nullptr) {
+                            new_gamma.push_back(res);
+                            if (res->equals((*new_form))){
+                                flag = 0;
+                                std::cout<<"Done!\n";
+                                break;
+                            }
+                        }
+                    }
+                }
+                else {
+                    break;
+                }
+            }
             }
         }
-    }
-    for (auto i = 0; i < gamma.size()-1; i++){
-        for (auto j = i+1; j < gamma.size(); j++){
-            if (auto f2 =dynamic_cast<Implies*>(gamma[j])){
-                auto res = Modes_ponens(gamma[i], f2);
-                if (res != nullptr) gamma.push_back(res);
-            }
+        for (auto g: new_gamma){
+            gamma.push_back(g);
+        }
+        if (flag == 0){
+            break;
         }
     }
-    
     std::ofstream out("../result.txt");
     for (auto g: gamma){
         g->print(out);

@@ -1,0 +1,4 @@
+curr formula: ((A > C) > ((B > C) > ((!A > B) > C)))	{(A > C) }
+curr formula: ((B > C) > ((!A > B) > C))	{(A > C) (B > C) }
+curr formula: ((!A > B) > C)	{(A > C) (B > C) (!A > B) }
+{(A > C) (B > C) (!A > B) C }

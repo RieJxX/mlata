@@ -143,3 +143,57 @@ Added new formula with replacement: ((!A > !A) > (!A > !A))
 From: !A and (!A > !A) derived: !A
 Exiting task1 with result: (!A > (!A > !A)) ((!A > (!A > !A)) > ((!A > !A) > (!A > !A))) ((!!A > !!A) > ((!!A > !A) > !A)) !A ((!A > !A) > (!A > !A)) ((!A > !A) > (!A > !A)) (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))) (!A > !A) ((!A > !A) > ((!A > !A) > (!A > !A))) (((!A > !A) > ((!A > !A) > (!A > !A))) > (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A)))) ((!(!A > !A) > !(!A > !A)) > ((!(!A > !A) > (!A > !A)) > (!A > !A))) (!A > !A) ((!A > !A) > (!A > !A)) ((!A > !A) > (!A > !A)) (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))) (!A > !A) ((!A > !A) > ((!A > !A) > (!A > !A))) (((!A > !A) > ((!A > !A) > (!A > !A))) > (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A)))) ((!(!A > !A) > !(!A > !A)) > ((!(!A > !A) > (!A > !A)) > (!A > !A))) (!A > !A) (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))) (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))) ((((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))) > (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A)))) ((!A > !A) > (!A > !A)) (((!A > !A) > (!A > !A)) > (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A)))) ((((!A > !A) > (!A > !A)) > (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A)))) > ((((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))) > (((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))))) ((!((!A > !A) > (!A > !A)) > !((!A > !A) > (!A > !A))) > ((!((!A > !A) > (!A > !A)) > ((!A > !A) > (!A > !A))) > ((!A > !A) > (!A > !A)))) ((!A > !A) > (!A > !A)) !A 
 
+#### Задание 2
+A8:   B→(A∨B)
+Entering rule_con with formula: (B > (A | B))
+Exiting rule_con with result: (B > (A | B))
+Entering rule_dis with formula: (B > (A | B))
+Applied rule_dis to right part: (!A > B)
+Entering rule_dis with formula: (!A > B)
+Exiting rule_dis with result: (!A > B)
+Exiting rule_dis with result: (B > (!A > B))
+Entering task1 with formula: (B > (!A > B))
+Entering deduction with formula: (B > (!A > B))
+Exiting deduction with result: B !A B 
+Dependencies log:
+From: (B > (B > B)) and ((B > (B > B)) > ((B > B) > (B > B))) derived (Modus Ponens): ((B > B) > (B > B))
+From: (B > (!A > B)) and ((B > (!A > B)) > ((B > !A) > (B > B))) derived (Modus Ponens): ((B > !A) > (B > B))
+From: (!A > (B > !A)) and ((!A > (B > !A)) > ((!A > B) > (!A > !A))) derived (Modus Ponens): ((!A > B) > (!A > !A))
+From: (!A > (!A > !A)) and ((!A > (!A > !A)) > ((!A > !A) > (!A > !A))) derived (Modus Ponens): ((!A > !A) > (!A > !A))
+From: B and (B > (B > B)) derived (Modus Ponens): (B > B)
+From: B and (B > (!A > B)) derived (Modus Ponens): (!A > B)
+From: !A and (!A > (B > !A)) derived (Modus Ponens): (B > !A)
+From: !A and (!A > (!A > !A)) derived (Modus Ponens): (!A > !A)
+From: (B > (B > B)) and ((B > (B > B)) > ((B > B) > (B > B))) derived (Modus Ponens): ((B > B) > (B > B))
+From: (B > (B > B)) and ((B > B) > (B > B)) derived (Hypothetical Syllogism): (B > (B > B))
+From: (B > (!A > B)) and ((B > (!A > B)) > ((B > !A) > (B > B))) derived (Modus Ponens): ((B > !A) > (B > B))
+From: (B > (!A > B)) and ((!A > B) > (!A > !A)) derived (Hypothetical Syllogism): (B > (!A > !A))
+From: (!A > (B > !A)) and ((!A > (B > !A)) > ((!A > B) > (!A > !A))) derived (Modus Ponens): ((!A > B) > (!A > !A))
+From: (!A > (B > !A)) and ((B > !A) > (B > B)) derived (Hypothetical Syllogism): (!A > (B > B))
+From: (!A > (!A > !A)) and ((!A > (!A > !A)) > ((!A > !A) > (!A > !A))) derived (Modus Ponens): ((!A > !A) > (!A > !A))
+From: (!A > (!A > !A)) and ((!A > !A) > (!A > !A)) derived (Hypothetical Syllogism): (!A > (!A > !A))
+From: B and (B > (B > B)) derived (Modus Ponens): (B > B)
+From: B and (B > (!A > B)) derived (Modus Ponens): (!A > B)
+From: B and (B > B) derived (Modus Ponens): B
+Exiting task1 with result: (B > (B > B)) (B > (!A > B)) (!A > (B > !A)) (!A > (!A > !A)) ((B > (B > B)) > ((B > B) > (B > B))) ((B > (B > !A)) > ((B > B) > (B > !A))) ((B > (!A > B)) > ((B > !A) > (B > B))) ((B > (!A > !A)) > ((B > !A) > (B > !A))) ((!A > (B > B)) > ((!A > B) > (!A > B))) ((!A > (B > !A)) > ((!A > B) > (!A > !A))) ((!A > (!A > B)) > ((!A > !A) > (!A > B))) ((!A > (!A > !A)) > ((!A > !A) > (!A > !A))) ((!B > !B) > ((!B > B) > B)) ((!!A > !B) > ((!!A > B) > !A)) ((!B > !!A) > ((!B > !A) > B)) ((!!A > !!A) > ((!!A > !A) > !A)) B !A ((B > B) > (B > B)) ((B > !A) > (B > B)) ((!A > B) > (!A > !A)) ((!A > !A) > (!A > !A)) (B > B) (!A > B) (B > !A) (!A > !A) ((B > B) > (B > B)) (B > (B > B)) ((B > !A) > (B > B)) (B > (!A > !A)) ((!A > B) > (!A > !A)) (!A > (B > B)) ((!A > !A) > (!A > !A)) (!A > (!A > !A)) (B > B) (!A > B) B 
+
+
+
+А11
+Entering rule_con with formula: (A | !A)
+Exiting rule_con with result: (A | !A)
+Entering rule_dis with formula: (A | !A)
+Applied rule_dis: (!A > !A)
+Exiting rule_dis with result: (!A > !A)
+Entering task1 with formula: (!A > !A)
+Entering deduction with formula: (!A > !A)
+Exiting deduction with result: !A !A 
+Dependencies log:
+From: (!A > (!A > !A)) and ((!A > (!A > !A)) > ((!A > !A) > (!A > !A))) derived (Modus Ponens): ((!A > !A) > (!A > !A))
+From: !A and (!A > (!A > !A)) derived (Modus Ponens): (!A > !A)
+From: (!A > (!A > !A)) and ((!A > (!A > !A)) > ((!A > !A) > (!A > !A))) derived (Modus Ponens): ((!A > !A) > (!A > !A))
+From: (!A > (!A > !A)) and ((!A > !A) > (!A > !A)) derived (Hypothetical Syllogism): (!A > (!A > !A))
+From: !A and (!A > (!A > !A)) derived (Modus Ponens): (!A > !A)
+From: !A and (!A > !A) derived (Modus Ponens): !A
+Exiting task1 with result: (!A > (!A > !A)) ((!A > (!A > !A)) > ((!A > !A) > (!A > !A))) ((!!A > !!A) > ((!!A > !A) > !A)) !A ((!A > !A) > (!A > !A)) (!A > !A) ((!A > !A) > (!A > !A)) (!A > (!A > !A)) (!A > !A) !A 
+

@@ -1,3 +1,2 @@
-curr formula: (A > (!A > B))	{A }
-curr formula: (!A > B)	{A !A }
-{A !A B }
+curr formula: (!A > !A)	{!A }
+{!A !A }

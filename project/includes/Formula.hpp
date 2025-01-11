@@ -17,6 +17,11 @@ class Formula{
         virtual void print(std::ostream& os) const=0;
         virtual bool equals(const Formula& other) const = 0;
         virtual Formula* clone() const = 0;
+
+
+        virtual Formula* get_left() { return nullptr; }
+        virtual Formula* get_right() { return nullptr; }
+        virtual Formula* get_operand() { return nullptr; } 
 };
 
 #endif

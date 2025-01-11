@@ -9,7 +9,7 @@ set(SOURCE_FILES
     src/Aksiomes.cpp
     src/Constructor.cpp
     src/New_aks.cpp
-    task1.cpp
+    task2.cpp
 )
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
